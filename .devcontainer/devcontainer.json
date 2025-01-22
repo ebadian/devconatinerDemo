@@ -1,0 +1,6 @@
+{
+    "name": "devcontainer",
+    "dockerFile": "Dockerfile",
+    "context": ".",
+    "appPort": [3000, 3001]
+}
