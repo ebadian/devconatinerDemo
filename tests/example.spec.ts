@@ -28,7 +28,5 @@ test('local app case sensitive', async ({ page }) => {
   await page.goto('http://localhost:3000');
   await page.getByText('Hello World')
   
-  await expect(page.getByText('hello World', { exact: true })).toBeVisible();
+  await expect(page.getByText('Hello World', { exact: true })).toBeVisible();
 });
-
-//todo make case sensitive tests
