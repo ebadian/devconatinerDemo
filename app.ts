@@ -1,11 +1,40 @@
-import express from "express";
+import express, { Express, Request, Response } from "express";
 
-const app = express();
+import dotenv from "dotenv";
+import nunjucks from "nunjucks";
 
-app.get("/", (req, res) => {
-    res.render('view/index.html');
+import path from "path"
+
+
+dotenv.config();
+const app: Express = express();
+const port = process.env.PORT || 3000;
+const isDev = app.get('env') === 'development';
+
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-});
+async function initializeApp() {
+    app.listen(port, () => {
+        console.log(`Listening on port ${port}`);
+    })
+}
+
+app.set('views', __dirname + '/templates');
+
+
+app.get('/', (req, res) => {
+    res.render('index.njk');
+  });
+
+
+
+export { app };
+
+if (require.main === module) {
+    initializeApp().catch(console.error);
+  }
+
+
