@@ -1,4 +1,5 @@
 name: Playwright Tests
+run-name: ${{ github.actor }} 🎭Playwrighter tests🎭
 on:
   push:
     branches: [main, master]
