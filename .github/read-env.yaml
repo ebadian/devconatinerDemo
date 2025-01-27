@@ -1,0 +1,17 @@
+name: Pipeline with .env
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
+        with:
+          path: ./.env  # Relative path to .env file
+
+      - name: Use environment variables
+        run: |
+          echo "Using SAMPLE_ENV: ${{ env.SAMPLE_ENV }}"

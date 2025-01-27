@@ -2,7 +2,7 @@ name: Playwright Tests
 run-name: ${{ github.actor }} 🎭Playwrighter tests🎭
 on:
   push:
-    branches: [main, master]
+    branches: [main, master] #Remove so that these tests only run during PRs
   pull_request:
     branches: [main, master]
 
