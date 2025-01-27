@@ -19,3 +19,9 @@ jobs:
       - name: Use environment variables
         run: |
           echo "Using SAMPLE_ENV: ${{ env.SAMPLE_ENV }}"
+
+      - name: Create .env file
+        run: |
+            touch .env
+            echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+            echo "API_KEY=${{ secrets.API_KEY }}" >> .env    
