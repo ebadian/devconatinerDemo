@@ -23,5 +23,5 @@ jobs:
       - name: Create .env file
         run: |
             touch .env
-            echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
-            echo "API_KEY=${{ secrets.API_KEY }}" >> .env    
+            echo "MY_DEEP_DARK_SECRET=${{ secrets.MY_DEEP_DARK_SECRET }}" >> .env
+            echo "VARIABLE_NAME=${{ variables.VARIABLE_NAME }}" >> .env    
