@@ -26,4 +26,5 @@ jobs:
             touch .env
             echo "MY_DEEP_DARK_SECRET=${{ secrets.MY_DEEP_DARK_SECRET }}" >> .env
             echo "VARIABLE_NAME=${{ vars.VARIABLE_NAME }}" >> .env    
+            ls al
             cat .env
