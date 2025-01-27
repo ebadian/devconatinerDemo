@@ -24,4 +24,4 @@ jobs:
         run: |
             touch .env
             echo "MY_DEEP_DARK_SECRET=${{ secrets.MY_DEEP_DARK_SECRET }}" >> .env
-            echo "VARIABLE_NAME=${{ variables.VARIABLE_NAME }}" >> .env    
+            echo "VARIABLE_NAME=${{ vars.VARIABLE_NAME }}" >> .env    
