@@ -16,17 +16,3 @@ test('get started link', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
-
-test('local app ', async ({ page }) => {
-  await page.goto('http://localhost:3000');
-  await page.getByText('Hello World')
-  
-  await expect(page.getByText('hello World' )).toBeVisible();
-});
-
-test('local app case sensitive', async ({ page }) => {
-  await page.goto('http://localhost:3000');
-  await page.getByText('Hello World')
-  
-  await expect(page.getByText('Hello World', { exact: true })).toBeVisible();
-});

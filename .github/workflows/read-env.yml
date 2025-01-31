@@ -1,0 +1,33 @@
+name: Pipeline with .env
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: list all files
+        run: |
+          ls -al
+
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
+        with:
+          path: .  # Relative path to .env file
+
+      - name: Use environment variables
+        run: |
+          echo "Using SAMPLE_ENV: ${{ env.SAMPLE_ENV }}"
+
+      - name: Create .env file
+        env: 
+          MY_SECRET: ${{ secrets.MY_DEEP_DARK_SECRET }}
+        run: |
+            touch .env
+            echo $MY_SECRET
+            echo "MY_DEEP_DARK_SECRET=$MY_SECRET " >> .env
+            echo "VARIABLE_NAME=${{ vars.VARIABLE_NAME }}" >> .env   
+            
+            cat .env
